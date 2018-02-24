@@ -7,3 +7,23 @@
 	<windows.h>
 	<iostream>
 
+1519484371 source:c:\users\yogi\documents\struktur data\asd_task_5\main.cpp
+	"player.h"
+	"list.h"
+	<conio.h>
+
+1518513903 c:\users\yogi\documents\struktur data\asd_task_5\player.h
+	"list.h"
+
+1519483556 c:\users\yogi\documents\struktur data\asd_task_5\list.h
+	<string>
+	<windows.h>
+	<iostream>
+
+1519486739 source:c:\users\yogi\documents\struktur data\asd_task_5\list.cpp
+	"list.h"
+
+1519486863 source:c:\users\yogi\documents\struktur data\asd_task_5\player.cpp
+	"player.h"
+	<ctime>
+

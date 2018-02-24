@@ -12,6 +12,7 @@ void printInfo(List L) {
     */
 
     address Q = first(L);
+
     do {
         cout<<"name    : "<<info(Q).name<<endl
             <<"ID      : "<<info(Q).ID<<endl
@@ -41,8 +42,14 @@ void shuffleList(List &L) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
-
+     address P=first(L);
+     int x= randomInt(99);
+     int i;
+		for (i=1;i<=x;i++) {
+        address Q=P;
+		deleteAfter(L, Q, P);
+		insertFirst(L, P);
+        }
     //----------------------------------------
 }
 
@@ -52,8 +59,29 @@ void sortListByID(List &L) {
     * FS : isi (elemen) dari list L terurut
     */
     //-------------your code here-------------
-
-        cout<<"UNDER MAIN TENIS"<<endl;
+    List L2;
+    createList(L2);
+    while (first(L)!=NULL) {
+        address P=NULL;
+        deleteFirst(L, P);
+        if (first(L2)==NULL) {
+            insertFirst(L2, P);
+        }
+        else if (info(first(L2)).ID>info(P).ID) {
+            insertFirst(L2, P);
+        }
+        else if (info(last(L2)).ID<info(P).ID) {
+            insertLast(L2, P);
+        }
+        else {
+            address Q=first(L2);
+            while (info(next(Q)).ID<info(Q).ID) {
+                Q=next(Q);
+            }
+            insertAfter(L2, Q, P);
+        }
+    }
+    L=L2;
 
     //----------------------------------------
 
@@ -65,8 +93,15 @@ void playRepeat(List &L, int n) {
     *      dari lagu pertama hingga terakhir sebanyak n kali
     */
     //-------------your code here-------------
+    int i;
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    for (i=1;i<n+1;i++) {
+        address P=first(L);
+        do {
+            playMusic(P);
+            P=next(P);
+        } while (P!=first(L));
+    }
 
     //----------------------------------------
 }
@@ -80,7 +115,26 @@ void deleteMusicByID(List &L, infotype x) {
     */
     //-------------your code here-------------
 
-        cout<<"UNDER MAIN TENIS"<<endl;
+    address P=findElmByID(L, x);
+    if (first(L)==NULL) {
+
+    }
+    else if (next(P)==P) {
+        first(L)=NULL;
+        last(L)=NULL;
+    }
+    else if (P==first(L)) {
+        deleteFirst(L, P);
+    }
+    else if (P==last(L)) {
+        deleteLast(L, P);
+    }
+    else {
+        address Q=prev(Q);
+        deleteAfter(L, Q, P);
+    }
+    deallocate(P);
+
 
     //----------------------------------------
 
